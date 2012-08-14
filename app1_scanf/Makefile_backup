@@ -1,0 +1,15 @@
+CC = gcc -Wall -c
+OBJECTEN = main.o function.o 
+
+test: $(OBJECTEN)
+	gcc $(OBJECTEN) -o test
+	
+main.o: main.c function.h
+	$(CC) main.c -o main.o
+	
+function.o: function.c function.h
+	$(CC) function.c -o function.o
+
+clean:
+	@echo 'cleaned'
+	rm *.o
